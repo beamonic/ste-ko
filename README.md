@@ -12,6 +12,16 @@
 
 항공기 정비 매뉴얼 규격인 ASD-STE100이 이 방식을 씁니다. 정비공이 문장을 잘못 읽으면 사람이 죽기 때문에, 멋있게 쓸 자유를 규격으로 막았습니다. STE-KO는 같은 방식을 한국어와 네 가지 표면에 적용합니다.
 
+## 무엇에 근거하나
+
+STE-KO는 세 갈래 위에 섭니다. 자세한 대응은 [SPEC.md 부록 D](SPEC.md#부록-d-근거와-계보)에 있습니다.
+
+- **한국 공적 자료.** [국어기본법 제14조](https://www.law.go.kr/LSW//lsSideInfoP.do?lsiSeq=270587&joNo=0014&joBrNo=00&docCls=jo&urlMode=lsScJoRltInfoR)는 공공기관이 공문서를 국민이 알기 쉬운 용어와 문장으로 쓰도록 정합니다. 국립국어원은 [한눈에 알아보는 공공언어 바로 쓰기(2022)](https://www.korean.go.kr/front/etcData/etcDataView.do?etc_seq=699)와 [쉬운 공문서 쓰기 길잡이(2022)](https://www.korean.go.kr/front/etcData/etcDataView.do?etc_seq=700)를 펴냈고, 공공언어를 정확성과 소통성 두 영역으로 진단합니다.
+- **국제 규격.** [ISO 24495-1:2023](https://www.iso.org/standard/78907.html)은 쉬운 언어의 원칙 네 개를 정합니다. Relevant, Findable, Understandable, Usable입니다. 적용 대상에 기술 문서와 통제 언어를 명시합니다.
+- **통제 언어 연구.** Tobias Kuhn의 [A Survey and Classification of Controlled Natural Languages](https://aclanthology.org/J14-1005/) (Computational Linguistics 40:1, 2014)가 통제 자연어 100개를 분류합니다.
+
+**빈 칸이 남습니다.** 공공언어 자료는 한국어를 다루지만 대상이 공문서입니다. 통제 언어 연구가 다룬 100개는 전부 영어 기반입니다. ISO 24495-1은 원칙 층위라 문장 규칙을 주지 않습니다. 한국어 기술 문서를 대상으로 하는 통제 언어 규격은 2026년 8월 검색에서 찾지 못했습니다. 없다고 단정하지는 않습니다. 같은 일을 한 규격을 아시면 알려 주십시오.
+
 ## 무엇이 달라지나
 
 규칙을 적용한 예입니다.
@@ -96,7 +106,7 @@ caveman의 입력 압축 프록시와 페이로드 타입 감지는 가져오지
 
 ## 상태
 
-버전 0.2.0. 규칙 70개입니다. 규칙 번호는 유지합니다. 규칙을 없앨 때 번호를 다시 쓰지 않고 `폐기`로 표시합니다.
+버전 0.3.0. 규칙 70개입니다. 규칙 번호는 유지합니다. 규칙을 없앨 때 번호를 다시 쓰지 않고 `폐기`로 표시합니다.
 
 검사 스크립트는 아직 없습니다. 어절 수, 이중피동, 명사 나열, 비승인 어휘는 기계로 검사할 수 있습니다. 규칙이 굳은 뒤에 만듭니다.
 
