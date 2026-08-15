@@ -1,0 +1,4 @@
+interface:
+  display_name: "STE-KO"
+  short_description: "한국어 통제 언어 규격으로 답한다"
+  default_prompt: "$ste-ko 규격으로 답해라. 결론 먼저, 25어절 이내, 이중피동 금지, 앞 턴 되풀이 금지."
