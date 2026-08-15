@@ -77,7 +77,9 @@ STE-KO는 **ASD-STE100의 번역이 아닙니다.** 참고한 것과 참고하�
 
 ASD-STE100 원문이 필요하면 [asd-ste100.org](https://www.asd-ste100.org/)에서 받습니다.
 
-**caveman** ([JuliusBrussee/caveman](https://github.com/JuliusBrussee/caveman))에서 9장 압축 등급의 착상을 가져왔습니다. 등급을 나눠 압축 강도를 조절한다는 것과, 안전 경고에서는 압축을 자동으로 푼다는 것 두 가지입니다. 규칙 문안은 한국어에 맞춰 새로 썼습니다.
+**caveman** ([JuliusBrussee/caveman](https://github.com/JuliusBrussee/caveman), v1.10.0 기준)에서 9장 압축 등급의 착상을 가져왔습니다. 세 가지입니다. 등급을 나눠 압축 강도를 조절한다, 안전 경고에서는 압축을 자동으로 푼다, 부정을 나타내는 말은 절대 지우지 않는다입니다. 규칙 문안은 한국어에 맞춰 새로 썼습니다. 한국어는 부정 표지가 짧아서 세 번째 항목의 위험이 영어보다 큽니다.
+
+caveman의 입력 압축 프록시와 페이로드 타입 감지는 가져오지 않았습니다. 실행 계층이라 문서 규격의 대상이 아닙니다.
 
 **[beamonic/plain-korean](https://github.com/beamonic/plain-korean)** 은 같은 조직의 자매 프로젝트입니다. 역할이 다릅니다. plain-korean은 에이전트가 바로 설치해 쓰는 문체 스킬이고, STE-KO는 사람과 에이전트가 함께 참조하는 규격 문서입니다. 둘을 같이 쓸 수 있습니다.
 
