@@ -98,6 +98,15 @@ Claude Code나 Codex를 쓴다면 메모리 파일에 한 줄 넣습니다. `~/.
 | `코딩` | 커밋 메시지, PR 본문, 에이전트 작업 보고 | 왜 바꿨는지 쓰기, 안 돌린 검사를 돌렸다고 쓰지 않기 |
 | `UI` | 버튼, 라벨, 빈 화면, 오류 메시지 | 어절 상한, 사용자 동작을 버튼에 쓰기, 되돌릴 수 없음 표시 |
 
+표면 두 개에는 별도 구현체가 있습니다. 규격이 정하지 않는 것 — 제품이 고를 종결어미, 높임 단계, 표면 고유의 판단 — 을 채웁니다.
+
+| 표면 | 구현체 | 채우는 것 |
+|---|---|---|
+| `UI` | [ux-writing-ko](https://github.com/beamonic/ux-writing-ko) | 제품 말투, 캐주얼 경어, 긍정형과 그 예외, CTA 예고성 |
+| `대화` | [plain-korean](https://github.com/beamonic/plain-korean) | 답변 문체, 근거와 불확실성 표시 |
+
+구현체는 규칙을 다시 정하지 않습니다. 규칙 번호로 이 규격에 위임하고, 부딪히면 0.3 우선순위를 따릅니다.
+
 쓰지 않습니다: 코드 자체, 로그, 명령어, 법률 문구, 계약서, 인용문, 홍보 문안, 사적인 대화, 소설.
 
 ## 출처와 저작권
@@ -114,7 +123,13 @@ ASD-STE100 원문이 필요하면 [asd-ste100.org](https://www.asd-ste100.org/)�
 
 caveman의 입력 압축 프록시와 페이로드 타입 감지는 가져오지 않았습니다. 실행 계층이라 문서 규격의 대상이 아닙니다.
 
-**[beamonic/plain-korean](https://github.com/beamonic/plain-korean)** 은 같은 조직의 자매 프로젝트입니다. 역할이 다릅니다. plain-korean은 에이전트가 바로 설치해 쓰는 문체 스킬이고, STE-KO는 사람과 에이전트가 함께 참조하는 규격 문서입니다. 둘을 같이 쓸 수 있습니다.
+같은 조직의 한국어 자산 셋이 이 규격 위에 올라갑니다. 역할이 다르므로 합치지 않습니다.
+
+- **[plain-korean](https://github.com/beamonic/plain-korean)** — `대화` 표면 구현체. 에이전트가 답변을 쓸 때 씁니다.
+- **[ux-writing-ko](https://github.com/beamonic/ux-writing-ko)** — `UI` 표면 구현체. 버튼, 오류 메시지, 빈 화면 문구를 쓸 때 씁니다.
+- **[no-ai-slop-ko](https://github.com/beamonic/no-ai-slop-ko)** — 표면 무관 편집 도구. 사람이 쓴 초안을 다듬을 때 씁니다.
+
+STE-KO는 사람과 에이전트가 함께 참조하는 규격 문서이고, 셋은 설치해서 쓰는 스킬입니다.
 
 ## 상태
 
