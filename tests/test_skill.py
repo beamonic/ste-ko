@@ -1,6 +1,7 @@
 """SKILL.md가 STE-KO 규칙을 스스로 지키는지 검사한다."""
 from pathlib import Path
 import re
+import sys
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -67,6 +68,21 @@ class SteKoSkillTest(unittest.TestCase):
         self.assertTrue(DICT.exists())
         self.assertIn("SPEC.md", self.skill)
         self.assertIn("dictionary.md", self.skill)
+
+    def test_lint_self_test_passes(self):
+        """검사기가 스스로 만든 위반 샘플을 잡는지 본다."""
+        import subprocess
+        r = subprocess.run([sys.executable, str(ROOT / "scripts" / "lint.py"), "--self-test"],
+                           capture_output=True, text=True)
+        self.assertEqual(r.returncode, 0, r.stderr)
+
+    def test_repo_docs_pass_lint(self):
+        """규격 문서가 자기 검사를 통과해야 한다."""
+        import subprocess
+        targets = [str(ROOT / f) for f in ("README.md", "SPEC.md", "dictionary.md")]
+        r = subprocess.run([sys.executable, str(ROOT / "scripts" / "lint.py"), *targets,
+                            "--surface", "문서"], capture_output=True, text=True)
+        self.assertEqual(r.returncode, 0, r.stdout)
 
     def test_openai_interface_exists(self):
         self.assertIn("$ste-ko", OPENAI_YAML.read_text(encoding="utf-8"))
