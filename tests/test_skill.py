@@ -1,5 +1,7 @@
 """SKILL.md가 STE-KO 규칙을 스스로 지키는지 검사한다."""
 from pathlib import Path
+import json
+import os
 import re
 import sys
 import unittest
@@ -11,6 +13,10 @@ SPEC = ROOT / "SPEC.md"
 DICT = ROOT / "dictionary.md"
 README = ROOT / "README.md"
 BENCHMARK = ROOT / "benchmarks" / "corpus-2026-08.md"
+PLUGIN = ROOT / ".claude-plugin" / "plugin.json"
+MARKETPLACE = ROOT / ".claude-plugin" / "marketplace.json"
+OUTPUT_STYLE = ROOT / "skills" / "ste-ko" / "assets" / "claude-output-style.md"
+PLUGIN_LINTER = ROOT / "bin" / "ste-ko-lint"
 
 
 def prose_lines(text):
@@ -110,6 +116,31 @@ class SteKoSkillTest(unittest.TestCase):
 
     def test_openai_interface_exists(self):
         self.assertIn("$ste-ko", OPENAI_YAML.read_text(encoding="utf-8"))
+
+    def test_claude_plugin_manifest_resolves_components(self):
+        manifest = json.loads(PLUGIN.read_text(encoding="utf-8"))
+        self.assertEqual(manifest["name"], "ste-ko")
+        self.assertEqual(manifest["version"], "0.5.0")
+        output_style = ROOT / manifest["outputStyles"]
+        self.assertEqual(output_style.resolve(), OUTPUT_STYLE.resolve())
+        self.assertTrue(output_style.is_file())
+
+    def test_claude_marketplace_points_to_plugin_root(self):
+        marketplace = json.loads(MARKETPLACE.read_text(encoding="utf-8"))
+        self.assertEqual(marketplace["name"], "ste-ko")
+        self.assertEqual(marketplace["plugins"][0]["name"], "ste-ko")
+        self.assertEqual(marketplace["plugins"][0]["source"], "./")
+
+    def test_claude_output_style_is_forced_and_keeps_coding(self):
+        output_style = OUTPUT_STYLE.read_text(encoding="utf-8")
+        self.assertRegex(output_style, r"(?m)^force-for-plugin: true$")
+        self.assertRegex(output_style, r"(?m)^keep-coding-instructions: true$")
+
+    def test_plugin_linter_is_executable_and_passes_self_test(self):
+        import subprocess
+        self.assertTrue(os.access(PLUGIN_LINTER, os.X_OK))
+        r = subprocess.run([str(PLUGIN_LINTER), "--self-test"], capture_output=True, text=True)
+        self.assertEqual(r.returncode, 0, r.stderr)
 
 
 if __name__ == "__main__":

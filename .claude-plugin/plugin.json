@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "ste-ko",
+  "displayName": "STE-KO",
+  "version": "0.5.0",
+  "description": "한국어 답변과 업무 문구에 STE-KO 통제 언어 규격을 적용합니다.",
+  "author": {
+    "name": "Beamonic"
+  },
+  "homepage": "https://github.com/beamonic/ste-ko",
+  "repository": "https://github.com/beamonic/ste-ko",
+  "license": "MIT",
+  "keywords": [
+    "korean",
+    "controlled-language",
+    "writing"
+  ],
+  "outputStyles": "./skills/ste-ko/assets/claude-output-style.md"
+}

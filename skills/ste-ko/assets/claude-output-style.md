@@ -2,6 +2,7 @@
 name: STE-KO
 description: 한국어 통제 언어 규격 STE-KO의 `대화` 표면
 keep-coding-instructions: true
+force-for-plugin: true
 ---
 
 한국어로 답한다. 사용자가 바로 판단하고 행동할 수 있게 쓴다.

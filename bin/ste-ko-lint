@@ -1,0 +1,5 @@
+#!/bin/sh
+set -eu
+
+STE_KO_ROOT=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
+exec python3 "$STE_KO_ROOT/scripts/lint.py" "$@"

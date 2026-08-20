@@ -83,6 +83,23 @@ npx skills add beamonic/ste-ko
 
 `/ste-ko 문서|대화|코딩|UI`로 표면을 바꿉니다. 기본은 `대화`입니다.
 
+### Claude Code 플러그인으로 설치
+
+플러그인은 STE-KO 스킬, 자동 출력 스타일, `ste-ko-lint` 실행 파일을 함께 설치합니다.
+
+```bash
+claude plugin marketplace add beamonic/ste-ko
+claude plugin install ste-ko@ste-ko --scope user
+```
+
+플러그인을 켜면 `STE-KO` 출력 스타일이 자동으로 적용됩니다. 기존 코딩 지침은 유지됩니다.
+
+설치 전에 로컬 플러그인을 엄격하게 검사할 수 있습니다.
+
+```bash
+claude plugin validate . --strict
+```
+
 ### 메모리 파일에 직접 적용
 
 Claude Code나 Codex를 쓴다면 메모리 파일에 한 줄 넣습니다. `~/.claude/CLAUDE.md` 또는 `AGENTS.md`에 적습니다.
@@ -172,7 +189,7 @@ STE-KO는 사람과 에이전트가 함께 참조하는 규격 문서이고, 둘
 
 ## 상태
 
-버전 0.4.0. 규칙 73개입니다. 규칙 번호는 유지합니다. 규칙을 없앨 때 번호를 다시 쓰지 않고 `폐기`로 표시합니다.
+버전 0.5.0. 규칙 73개입니다. 규칙 번호는 유지합니다. 규칙을 없앨 때 번호를 다시 쓰지 않고 `폐기`로 표시합니다.
 
 검사기는 `scripts/lint.py`입니다. 의존성이 없고 표준 라이브러리만 씁니다. 이 저장소의 `README.md`, `SPEC.md`, `dictionary.md`, `SKILL.md`는 위반 0건입니다.
 

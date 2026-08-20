@@ -1,0 +1,16 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "ste-ko",
+  "description": "한국어 답변과 업무 문구를 STE-KO 통제 언어 규격으로 통일합니다.",
+  "owner": {
+    "name": "Beamonic"
+  },
+  "plugins": [
+    {
+      "name": "ste-ko",
+      "description": "STE-KO 스킬, 자동 출력 스타일, 린터 실행 파일을 묶은 Claude Code 플러그인입니다.",
+      "source": "./",
+      "category": "productivity"
+    }
+  ]
+}
