@@ -9,6 +9,8 @@ SKILL = ROOT / "skills" / "ste-ko" / "SKILL.md"
 OPENAI_YAML = ROOT / "skills" / "ste-ko" / "agents" / "openai.yaml"
 SPEC = ROOT / "SPEC.md"
 DICT = ROOT / "dictionary.md"
+README = ROOT / "README.md"
+BENCHMARK = ROOT / "benchmarks" / "corpus-2026-08.md"
 
 
 def prose_lines(text):
@@ -35,6 +37,28 @@ class SteKoSkillTest(unittest.TestCase):
     def test_all_four_surfaces_present(self):
         for surface in ("`대화`", "`문서`", "`코딩`", "`UI`"):
             self.assertIn(surface, self.skill)
+
+    def test_work_messages_have_explicit_surfaces(self):
+        for text in (self.skill, SPEC.read_text(encoding="utf-8")):
+            for channel in ("Asana", "Slack", "업무 이메일"):
+                self.assertIn(channel, text)
+
+    def test_rule_count_claims_match_spec(self):
+        spec = SPEC.read_text(encoding="utf-8")
+        rules = re.findall(r"(?m)^### (\d+\.\d+)\b", spec)
+        self.assertEqual(len(rules), 73)
+
+        texts = [
+            self.skill,
+            spec,
+            README.read_text(encoding="utf-8"),
+            BENCHMARK.read_text(encoding="utf-8"),
+        ]
+        for text in texts:
+            self.assertNotRegex(text, r"규칙 (?:70|78)개|나머지 71개")
+
+        self.assertIn("규칙 73개", self.skill)
+        self.assertIn("규칙 73개", texts[2])
 
     def test_release_conditions_survive_compression(self):
         """9.4와 9.3이 스킬에서 빠지면 안전 규칙이 통째로 사라진다."""

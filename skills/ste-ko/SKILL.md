@@ -1,6 +1,6 @@
 ---
 name: ste-ko
-description: 한국어 답변, 커밋 메시지, UI 문구를 통제 언어 규격 STE-KO로 쓴다. 결론 먼저, 25어절 상한, 이중피동 금지, 앞 턴 되풀이 금지, 실행하지 않은 검사를 통과했다고 쓰지 않기. 사용자가 "말투가 구리다", "장황하다", "간결하게", "STE-KO로", "/ste-ko"라고 하거나 한국어로 답할 때 쓴다. Korean controlled language for agent replies, commit messages, and UI copy.
+description: 한국어 답변, Asana 업무 항목, Slack 메시지, 업무 이메일, 커밋 메시지, UI 문구를 통제 언어 규격 STE-KO로 쓴다. 결론 먼저, 25어절 상한, 이중피동 금지, 앞 턴 되풀이 금지, 실행하지 않은 검사를 통과했다고 쓰지 않기. 사용자가 "말투가 구리다", "장황하다", "간결하게", "STE-KO로", "/ste-ko"라고 하거나 한국어로 답할 때 쓴다. Korean controlled language for work messages, agent replies, commit messages, and UI copy.
 ---
 
 # STE-KO
@@ -17,8 +17,8 @@ description: 한국어 답변, 커밋 메시지, UI 문구를 통제 언어 규�
 
 | 표면 | 쓰는 자리 | 문장 상한 | 문단 상한 |
 |---|---|---|---|
-| `대화` | AI 답변, 채팅, 리뷰 코멘트 | 25어절 | 4문장 |
-| `문서` | 기술 문서, 절차서, 장애 보고 | 25어절 | 6문장 |
+| `대화` | AI 답변, Slack 메시지, Asana 댓글, 업무 이메일, 리뷰 코멘트 | 25어절 | 4문장 |
+| `문서` | 기술 문서, Asana 업무 항목과 상태 보고, 절차서, 장애 보고 | 25어절 | 6문장 |
 | `코딩` | 커밋 메시지, PR 본문, 작업 보고 | 20어절 | 4문장 |
 | `UI` | 버튼, 라벨, 빈 화면, 오류 메시지 | 12어절 | 2문장 |
 
@@ -103,4 +103,4 @@ description: 한국어 답변, 커밋 메시지, UI 문구를 통제 언어 규�
 
 리뷰에서 `어색해요` 대신 `2.1 위반, 명사 5개`라고 쓴다. 번호로 지적하면 고칠 방향이 하나로 정해진다.
 
-규칙 70개 전체는 [SPEC.md](../../SPEC.md), 비승인 어휘 235항목은 [dictionary.md](../../dictionary.md)에 있다. 근거와 계보는 SPEC.md 부록 D에 있다.
+규칙 73개 전체는 [SPEC.md](../../SPEC.md), 비승인 어휘 235항목은 [dictionary.md](../../dictionary.md)에 있다. 근거와 계보는 SPEC.md 부록 D에 있다.
