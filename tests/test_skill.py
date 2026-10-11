@@ -120,7 +120,7 @@ class SteKoSkillTest(unittest.TestCase):
     def test_claude_plugin_manifest_resolves_components(self):
         manifest = json.loads(PLUGIN.read_text(encoding="utf-8"))
         self.assertEqual(manifest["name"], "ste-ko")
-        self.assertEqual(manifest["version"], "0.5.0")
+        self.assertEqual(manifest["version"], "0.5.1")
         output_style = ROOT / manifest["outputStyles"]
         self.assertEqual(output_style.resolve(), OUTPUT_STYLE.resolve())
         self.assertTrue(output_style.is_file())
