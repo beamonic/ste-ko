@@ -100,6 +100,12 @@ claude plugin install ste-ko@ste-ko --scope user
 claude plugin validate . --strict
 ```
 
+### Paperclip 회사 스킬로 가져오기
+
+Paperclip에서는 **Skills → Sources → Import from GitHub**를 열고 이 저장소 주소를 붙여넣습니다. 저장소 루트의 `paperclip.skills.json`이 스킬 경로와 실행 조건을 알려 줍니다.
+
+Paperclip은 저장소 파일을 함께 보관합니다. 그래서 SKILL.md가 가리키는 `SPEC.md`, `tasks.md`, `dictionary.md`도 에이전트가 읽습니다. 가져온 뒤 스킬을 쓸 에이전트에 붙입니다.
+
 ### 메모리 파일에 직접 적용
 
 Claude Code나 Codex를 쓴다면 메모리 파일에 한 줄 넣습니다. `~/.claude/CLAUDE.md` 또는 `AGENTS.md`에 적습니다.

@@ -17,6 +17,7 @@ PLUGIN = ROOT / ".claude-plugin" / "plugin.json"
 MARKETPLACE = ROOT / ".claude-plugin" / "marketplace.json"
 OUTPUT_STYLE = ROOT / "skills" / "ste-ko" / "assets" / "claude-output-style.md"
 PLUGIN_LINTER = ROOT / "bin" / "ste-ko-lint"
+PAPERCLIP_MANIFEST = ROOT / "paperclip.skills.json"
 
 
 def prose_lines(text):
@@ -124,6 +125,16 @@ class SteKoSkillTest(unittest.TestCase):
         output_style = ROOT / manifest["outputStyles"]
         self.assertEqual(output_style.resolve(), OUTPUT_STYLE.resolve())
         self.assertTrue(output_style.is_file())
+
+    def test_paperclip_manifest_names_existing_skill(self):
+        """Paperclip은 키나 경로가 하나라도 틀리면 manifest 전체를 버린다."""
+        manifest = json.loads(PAPERCLIP_MANIFEST.read_text(encoding="utf-8"))
+        self.assertEqual(set(manifest) - {"version", "skills", "requirements"}, set())
+        self.assertEqual(manifest["version"], 1)
+        self.assertIn("skills/ste-ko/SKILL.md", manifest["skills"])
+        for path in manifest["skills"]:
+            self.assertTrue((ROOT / path).is_file(), path)
+        self.assertLessEqual(len(manifest.get("requirements", "")), 4000)
 
     def test_claude_marketplace_points_to_plugin_root(self):
         marketplace = json.loads(MARKETPLACE.read_text(encoding="utf-8"))
