@@ -1,0 +1,5 @@
+{
+  "version": 1,
+  "skills": ["skills/ste-ko/SKILL.md"],
+  "requirements": "The skill needs no setup. The optional linter (bin/ste-ko-lint, scripts/lint.py) needs Python 3 and uses only the standard library."
+}
